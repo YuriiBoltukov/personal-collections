@@ -1,7 +1,7 @@
 export interface Collection {
   id: string;
   name: string;
-  item: Item[];
+  collectionId: string;
 }
 
 export interface Item {
@@ -9,4 +9,11 @@ export interface Item {
   name: string;
   description: string;
   date: string;
+}
+export interface User {
+  name: string;
+  email: string;
+  id: string;
+  role: string;
+  collections: Collection[];
 }
