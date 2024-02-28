@@ -1,13 +1,17 @@
-function prepareCollection(collection) {
+import {Response, Request} from "express";
+
+function prepareCollection(collection: any) {
   return {
     id: collection._id.toString(),
     title: collection.title,
   };
 }
 
-module.exports.collections = async function collections(req, res) {
+async function collections(req: Request, res: Response) {
   //const collectionsDB = await Collection.find({});
   //const collections = collectionsDB.map(prepareCollection);
+  throw new Error('BROKEN')
+
   const collections = [
     {
       id: 12,
@@ -17,3 +21,5 @@ module.exports.collections = async function collections(req, res) {
 
   res.send(collections)
 }
+
+export default collections;

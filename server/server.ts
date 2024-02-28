@@ -1,15 +1,18 @@
+import {NextFunction, Response, Request, Router} from "express";
+import bodyParser from "body-parser";
+import collectionsRouter from "./routes/collections.route";
+import notFoundHandlerMd from "./middlewares/notFoundPageHandler.md";
+import errorHandlerMd from "./middlewares/errorHandler.md";
 const express = require('express');
-const bodyParser = require("body-parser");
-const {collectionsRouter} = require("./routes/callections.route");
-const {errorHandlerMd} = require("./middlewares/errorHandler.md");
 const PORT = process.env.PORT || 1000;
 const app = express();
 
-const userRouter = express.Router();
-const registrationRouter = express.Router();
-const loginRouter = express.Router();
+const userRouter = Router();
+const registrationRouter = Router();
+const loginRouter = Router();
 
-app.use(function (req, res, next) {
+app.use(function (req: Request, res: Response, next: NextFunction) {
+  // throw new Error('BROKEN')
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "*");
   res.header(
@@ -19,23 +22,21 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.use(async (req, res, next) => {
-  try {
-    await next();
-  } catch (err) {
-    console.log('serserw');
-    next(err);
-  }
-});
-
 app.use(bodyParser.json());
+
 app.use('/collections', collectionsRouter);
 app.use('/user', userRouter);
 app.use('/registration', registrationRouter);
 app.use('/login', loginRouter);
 
+app.use(notFoundHandlerMd);
 app.use(errorHandlerMd);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+
+
+
+
