@@ -10,6 +10,12 @@ export interface Item {
   description: string;
   date: string;
 }
+
+export interface ItemDescription extends Item{
+ image: string;
+
+}
+
 export interface User {
   name: string;
   email: string;
