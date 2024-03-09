@@ -1,13 +1,13 @@
 import {NextFunction, Response, Request, Router} from "express";
 import bodyParser from "body-parser";
 import collectionsRouter from "./routes/collections.route";
+import userRouter from "./routes/user.route";
 import notFoundHandlerMd from "./middlewares/notFoundPageHandler.md";
 import errorHandlerMd from "./middlewares/errorHandler.md";
 const express = require('express');
 const PORT = process.env.PORT || 1000;
 const app = express();
 
-const userRouter = Router();
 const registrationRouter = Router();
 const loginRouter = Router();
 

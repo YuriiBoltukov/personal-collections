@@ -1,6 +1,6 @@
 function CollectionPage() {
   return (
-    <div>
+    <>
       <nav aria-label="Page navigation example">
         <ul className="pagination">
           <li className="page-item">
@@ -20,7 +20,7 @@ function CollectionPage() {
           </li>
         </ul>
       </nav>
-    </div>
+    </>
   );
 }
 

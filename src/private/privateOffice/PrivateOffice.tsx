@@ -1,6 +1,6 @@
 function PrivateOffice() {
   return (
-    <div></div>
+    <div>Private office</div>
   );
 }
 

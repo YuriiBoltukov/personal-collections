@@ -1,6 +1,6 @@
 function AdminPanel() {
   return (
-    <div></div>
+    <div>admin panel</div>
   );
 }
 
