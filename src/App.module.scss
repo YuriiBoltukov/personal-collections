@@ -1,0 +1,10 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  margin-bottom: 20px;
+  &_link {
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+}

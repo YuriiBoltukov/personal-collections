@@ -1,4 +1,4 @@
-import './App.css'
+import style from './App.module.scss'
 import { useState, useEffect }          from 'react';
 import { Provider }                     from 'react-redux';
 import store                            from './store/store.ts';
@@ -15,7 +15,7 @@ import { Role } from './enum/role.enum.ts';
 import { User } from './models/interfaces.user.ts';
 function App() {
   const [user, setUser]: [ null | User, (value: User) => void] = useState<null | User>(null)
-
+  const isAdmin = user ? user.role === Role.admin : false
   async function getUser() {
     try{
       const response = await fetch('http://localhost:1000/user/12');
@@ -28,9 +28,6 @@ function App() {
   }
   // @ts-ignore
   const PrivateRoute = ({children}) => {
-    if(!user) return
-    const isAdmin = user.role === Role.admin
-
     return isAdmin ? <>{children}</> : <Navigate to={'/Home'} />
   };
 
@@ -41,17 +38,16 @@ function App() {
 
   return (
     <Provider store={store}>
-      <h4>{'sdfgshgf'}</h4>
-      <div>
-        <NavLink to={'/'}>home</NavLink>
-        <NavLink to={'/dashboard'}>dashboard</NavLink>
-        <NavLink to={'/login'}>login</NavLink>
-        <NavLink to={'/signup'}>signup</NavLink>
-        <NavLink to={'/searchResult'}>search result</NavLink>
-        <NavLink to={'/collection/id'}>collection</NavLink>
-        { user &&  <NavLink to={ '/private/privateOffice' }>Private office</NavLink> }
-        { user && <NavLink to={'/private/admin'}>admin panel</NavLink> }
-      </div>
+      <nav className={style.nav}>
+        <NavLink className={style.nav_link} to={'/'}>home</NavLink>
+        <NavLink className={style.nav_link} to={'/dashboard'}>dashboard</NavLink>
+        <NavLink className={style.nav_link} to={'/login'}>login</NavLink>
+        <NavLink className={style.nav_link} to={'/signup'}>signup</NavLink>
+        <NavLink className={style.nav_link} to={'/searchResult'}>search result</NavLink>
+        <NavLink className={style.nav_link} to={'/collection/id'}>collection</NavLink>
+        { isAdmin &&  <NavLink className={style.nav_link} to={ '/private/privateOffice' }>Private office</NavLink> }
+        { isAdmin && <NavLink className={style.nav_link} to={'/private/admin'}>admin panel</NavLink> }
+      </nav>
 
       <Routes>
         <Route path='/' element={<Home />} />
