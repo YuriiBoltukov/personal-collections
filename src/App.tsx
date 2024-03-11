@@ -18,7 +18,7 @@ function App() {
   const isAdmin = user ? user.role === Role.admin : false
   async function getUser() {
     try{
-      const response = await fetch('http://localhost:1000/user/12');
+      const response = await fetch('http://localhost:1000/user/1');
       const user = await response.json();
       console.log(user)
       setUser(user)
