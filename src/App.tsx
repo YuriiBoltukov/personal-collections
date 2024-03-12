@@ -13,6 +13,7 @@ import PrivateOffice                    from './private/privateOffice/PrivateOff
 import Home                             from './components/Home.tsx';
 import { Role } from './enum/role.enum.ts';
 import { User } from './models/interfaces.user.ts';
+import CreateCollection                     from './components/CreateCollection/CreateCollection.tsx';
 function App() {
   const [user, setUser]: [ null | User, (value: User) => void] = useState<null | User>(null)
   const isAdmin = user ? user.role === Role.admin : false
@@ -56,6 +57,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/searchResult' element={<SearchResultPage />} />
         <Route path='/signup' element={<Signup />} />
+        <Route path='/create' element={<CreateCollection />}/>
         <Route path='/private/admin' element={<PrivateRoute><AdminPanel /></PrivateRoute>} />
         <Route path='/private/privateOffice' element={<PrivateRoute><PrivateOffice /></PrivateRoute>}/>
       </Routes>

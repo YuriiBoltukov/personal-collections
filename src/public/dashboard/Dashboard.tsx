@@ -1,11 +1,13 @@
 import Tags from '../../components/Tags/Tags.tsx';
 import CollectionCard from '../../components/CollectionCard/CollectionCard.tsx';
 import { mock } from '../../MOCK/mock.ts';
+import CreateCollection from '../../components/CreateCollection/CreateCollection.tsx';
 
 function Dashboard() {
   return (
     <div>
       Dashboard
+      <CreateCollection />
       <div>
         Collections:
         <div style={{display: 'flex', flexWrap: 'wrap', gap: '1rem'}}>
