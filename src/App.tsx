@@ -2,7 +2,6 @@ import style from './App.module.scss'
 import { useState, useEffect }          from 'react';
 import { Provider }                     from 'react-redux';
 import store                            from './store/store.ts';
-import CollectionPage                       from './public/collectionPage/CollectionPage.tsx';
 import { Routes, Route, NavLink, Navigate } from 'react-router-dom'
 import Dashboard                            from './public/dashboard/Dashboard.tsx';
 import Login                            from './public/login/Login.tsx';
@@ -14,6 +13,8 @@ import Home                             from './components/Home.tsx';
 import { Role } from './enum/role.enum.ts';
 import { User } from './models/interfaces.user.ts';
 import CreateCollection                     from './components/CreateCollection/CreateCollection.tsx';
+import CollectionList                       from './components/CollectionList/CollectionList.tsx';
+import CollectionPage                       from './public/collectionPage/CollectionPage.tsx';
 function App() {
   const [user, setUser]: [ null | User, (value: User) => void] = useState<null | User>(null)
   const isAdmin = user ? user.role === Role.admin : false
@@ -45,13 +46,14 @@ function App() {
         <NavLink className={style.nav_link} to={'/login'}>login</NavLink>
         <NavLink className={style.nav_link} to={'/signup'}>signup</NavLink>
         <NavLink className={style.nav_link} to={'/searchResult'}>search result</NavLink>
-        <NavLink className={style.nav_link} to={'/collection/id'}>collection</NavLink>
+        <NavLink className={style.nav_link} to={'/collection'}>collection</NavLink>
         { isAdmin &&  <NavLink className={style.nav_link} to={ '/private/privateOffice' }>Private office</NavLink> }
         { isAdmin && <NavLink className={style.nav_link} to={'/private/admin'}>admin panel</NavLink> }
       </nav>
 
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/collection/' element={<CollectionList />} />
         <Route path='/collection/:id' element={<CollectionPage />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/login' element={<Login />} />

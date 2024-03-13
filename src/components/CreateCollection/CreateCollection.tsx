@@ -5,7 +5,7 @@ import { Collection } from '../../models/interface.collection.ts';
 
 
 const CreateCollection: React.FC = () => {
-  const [visible, setVisible] = useState<boolean>(false);
+  const [visible, setVisible] = useState<boolean>(true);
   const [form] = Form.useForm();
   const [itemName, setItemName] = useState<string>('');
   const [itemTags, setItemTags] = useState<string[]>([]);
@@ -46,7 +46,7 @@ const CreateCollection: React.FC = () => {
 
   return (
     <Modal
-      visible={visible}
+      open={ visible }
       title="Create Collection"
       okText="Create"
       cancelText="Cancel"
