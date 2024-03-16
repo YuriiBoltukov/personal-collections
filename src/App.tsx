@@ -9,8 +9,8 @@ import SearchResultPage from './public/pages/searchResultPage/SearchResultPage.t
 import Signup        from './public/pages/signup/Signup.tsx';
 import AdminPanel    from './private/pages/adminPanel/AdminPanel.tsx';
 import PrivateOffice from './private/pages/privateOffice/PrivateOffice.tsx';
-import { Role } from './enum/role.enum.ts';
-import { User }         from './models/interfaces.user.ts';
+import { Role }      from './public/modules/user/models/role.enum.ts';
+import { User }      from './public/modules/user/models/interfaces.user.ts';
 import CreateCollection from './private/pages/CreateCollection/CreateCollection.tsx';
 import CollectionList   from './public/components/CollectionList/CollectionList.tsx';
 import CollectionPage   from './public/pages/collection/Collection.tsx';

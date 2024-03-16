@@ -1,4 +1,4 @@
-export const mock = [
+export const collections = [
   {
     id: '1',
     name: 'coins',

@@ -1,4 +1,4 @@
-import { Role } from '../enum/role.enum.ts';
+import { Role } from './role.enum.ts';
 
 export interface User {
   name: string;

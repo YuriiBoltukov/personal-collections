@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { List, Pagination } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
-import { Collection }    from '../../../models/interface.collection.ts';
+import { Collection }    from '../../modules/collection/models/interface.collection.ts';
 import { useNavigate }   from 'react-router-dom';
 import Search                         from 'antd/es/input/Search';
 import { useSelector }                from 'react-redux';
