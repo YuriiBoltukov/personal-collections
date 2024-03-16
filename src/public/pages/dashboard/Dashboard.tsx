@@ -1,5 +1,5 @@
-import Tags from '../../components/Tags/Tags.tsx';
-import CreateCollection from '../../components/CreateCollection/CreateCollection.tsx';
+import Tags             from '../../UI/Tags/Tags.tsx';
+import CreateCollection from '../../../private/pages/CreateCollection/CreateCollection.tsx';
 
 function Dashboard() {
   return (

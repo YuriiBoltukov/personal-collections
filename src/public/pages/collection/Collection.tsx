@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { Collection } from '../../models/interface.collection';
-import { mock } from '../../MOCK/mock';
-import { useParams }                  from 'react-router-dom';
-import CollectionItemsList            from '../CollectionItemsList/CollectionItemsList.tsx';
+import { useState, useEffect } from 'react';
+import { useParams }       from 'react-router-dom';
+import { Collection }      from '../../../models/interface.collection.ts';
+import { mock }            from '../../../MOCK/mock.ts';
+import CollectionItemsList from '../../components/CollectionItemsList/CollectionItemsList.tsx';
 
 
 const CollectionPage = () => {

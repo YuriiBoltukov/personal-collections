@@ -1,7 +1,7 @@
 import React, { useId, useState }     from 'react';
 import { Button, Form, Input, Modal } from 'antd';
-import { Item } from '../../models/interface.item.ts';
-import { Collection } from '../../models/interface.collection.ts';
+import { Item }                       from '../../../models/interface.item.ts';
+import { Collection }                 from '../../../models/interface.collection.ts';
 
 
 const CreateCollection: React.FC = () => {

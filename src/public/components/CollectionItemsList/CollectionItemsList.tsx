@@ -2,7 +2,7 @@ import React from 'react';
 import { List } from 'antd';
 import { useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
-import { ItemType } from './types';
+import { ItemType }   from './types';
 import CollectionItem from '../CollectionItem/CollectionItem.tsx';
 
 
