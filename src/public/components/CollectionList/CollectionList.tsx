@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { List, Pagination } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
-import { Collection } from '../../modules/collection';
 import { useNavigate } from 'react-router-dom';
 import Search from 'antd/es/input/Search';
 import { useSelector } from 'react-redux';
+import { State } from '../../../store/models/state.interface.ts';
 
 export const CollectionList: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize] = useState(10);
   const navigate = useNavigate();
   const collections = useSelector(
-    (state: Collection[]) => state.collections.collections,
+    (state: State) => state.collections.collections,
   );
 
   useEffect(() => {

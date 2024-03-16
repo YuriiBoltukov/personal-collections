@@ -1,5 +1,5 @@
 import style from './App.module.scss';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Provider } from 'react-redux';
 import store from './store/store.ts';
 import { Routes, Route, NavLink, Navigate } from 'react-router-dom';
@@ -28,8 +28,8 @@ function App() {
       console.error('Error fetching data:', error);
     }
   }
-  // @ts-ignore
-  const PrivateRoute = ({ children }) => {
+
+  const PrivateRoute = ({ children }: { children: React.ReactNode }) => {
     return isAdmin ? <>{children}</> : <Navigate to={'/Home'} />;
   };
 

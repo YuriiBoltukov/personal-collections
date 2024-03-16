@@ -9,9 +9,10 @@ export function Search() {
     history(`/searchResult`);
   };
 
-  const handleChange = event => {
-    setSearch(event.target.value);
+  const handleChange = (value: string) => {
+    setSearch(value);
   };
+
   return (
     <div className="input-group mb-3">
       <input
@@ -21,7 +22,7 @@ export function Search() {
         aria-label="Recipient's username"
         aria-describedby="basic-addon2"
         value={search}
-        onChange={handleChange}
+        onChange={({ target: { value } }) => handleChange(value)}
       />
       <div className="input-group-append">
         <button
