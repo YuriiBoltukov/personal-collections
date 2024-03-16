@@ -10,7 +10,7 @@ function prepareUser(user: any) {
 
 async function user(req: Request, res: Response) {
   //const collectionsDB = await Collection.find({});
-  //const collections = collectionsDB.map(prepareCollection);
+  //const collectionsMock = collectionsDB.map(prepareCollection);
   //throw new Error('BROKEN')
 
   const admin = 12;

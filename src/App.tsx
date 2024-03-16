@@ -3,17 +3,17 @@ import React, { useState, useEffect } from 'react';
 import { Provider } from 'react-redux';
 import store from './store/store.ts';
 import { Routes, Route, NavLink, Navigate } from 'react-router-dom';
-import Dashboard from './public/pages/dashboard/Dashboard.tsx';
-import Login from './public/pages/login/Login.tsx';
-import SearchResultPage from './public/pages/searchResultPage/SearchResultPage.tsx';
-import Signup from './public/pages/signup/Signup.tsx';
-import AdminPanel from './private/pages/adminPanel/AdminPanel.tsx';
-import PrivateOffice from './private/pages/privateOffice/PrivateOffice.tsx';
+import DashboardPage from './public/pages/dashboard/Dashboard.page.tsx';
+import LoginPage from './public/pages/login/Login.page.tsx';
+import SearchResultPage from './public/pages/searchResultPage/SearchResult.page.tsx';
+import SignupPage from './public/pages/signup/Signup.page.tsx';
+import AdminPanelPage from './private/pages/adminPanel/AdminPanel.page.tsx';
+import PrivateOfficePage from './private/pages/privateOffice/PrivateOffice.page.tsx';
 import { Role } from './public/modules/user';
 import { User } from './public/modules/user';
-import CreateCollection from './private/pages/CreateCollection/CreateCollection.tsx';
-import CollectionPage from './public/pages/collection/Collection.tsx';
-import { CollectionList } from './public/components';
+import CreateCollectionPage from './private/pages/CreateCollection/CreateCollection.page.tsx';
+import CollectionPage from './public/pages/collection/Collection.page.tsx';
+import { CollectionListComponent } from './public/components';
 function App() {
   const [user, setUser]: [null | User, (value: User) => void] =
     useState<null | User>(null);
@@ -68,18 +68,18 @@ function App() {
       </nav>
 
       <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/collection/" element={<CollectionList />} />
+        <Route path="/" element={<DashboardPage />} />
+        <Route path="/collection/" element={<CollectionListComponent />} />
         <Route path="/collection/:id" element={<CollectionPage />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<LoginPage />} />
         <Route path="/searchResult" element={<SearchResultPage />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/create" element={<CreateCollection />} />
+        <Route path="/signup" element={<SignupPage />} />
+        <Route path="/create" element={<CreateCollectionPage />} />
         <Route
           path="/private/admin"
           element={
             <PrivateRoute>
-              <AdminPanel />
+              <AdminPanelPage />
             </PrivateRoute>
           }
         />
@@ -87,7 +87,7 @@ function App() {
           path="/private/privateOffice"
           element={
             <PrivateRoute>
-              <PrivateOffice />
+              <PrivateOfficePage />
             </PrivateRoute>
           }
         />

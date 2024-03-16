@@ -3,7 +3,7 @@ import { Button, Form, Input, Modal } from 'antd';
 import { Item } from '../../../public/modules/collection';
 import { Collection } from '../../../public/modules/collection';
 
-const CreateCollection: React.FC = () => {
+const CreateCollectionPage: React.FC = () => {
   const [visible, setVisible] = useState<boolean>(true);
   const [form] = Form.useForm();
   const [itemName, setItemName] = useState<string>('');
@@ -11,6 +11,7 @@ const CreateCollection: React.FC = () => {
 
   const handleAddItem = () => {
     const newItem: Item = {
+      // eslint-disable-next-line react-hooks/rules-of-hooks
       id: useId(),
       name: itemName,
       tags: itemTags,
@@ -23,14 +24,14 @@ const CreateCollection: React.FC = () => {
   const handleCreate = () => {
     form.validateFields().then(values => {
       const collection: Collection = {
+        // eslint-disable-next-line react-hooks/rules-of-hooks
         id: useId(),
         name: values.name,
         theme: values.theme,
         description: values.description,
         image: values.image,
       };
-      const items: Item[] = values.items || [];
-      onCreate(collection, items);
+      onCreate(collection, values.items);
       form.resetFields();
       setItemName('');
       setItemTags([]);
@@ -38,9 +39,9 @@ const CreateCollection: React.FC = () => {
     });
   };
 
-  const onCreate = (collection: Collection, items: Item[]) => {
+  const onCreate = (collection: Collection, itemsMock: Item[]) => {
     console.log('Created collection:', collection);
-    console.log('Items:', items);
+    console.log('Items:', itemsMock);
   };
 
   return (
@@ -77,7 +78,7 @@ const CreateCollection: React.FC = () => {
             style={{ marginBottom: 8 }}
           />
           <Input
-            placeholder="Tags (comma separated)"
+            placeholder="TagsUi (comma separated)"
             value={itemTags.join(',')}
             onChange={event => setItemTags(event.target.value.split(','))}
             style={{ marginBottom: 8 }}
@@ -92,4 +93,4 @@ const CreateCollection: React.FC = () => {
   );
 };
 
-export default CreateCollection;
+export default CreateCollectionPage;

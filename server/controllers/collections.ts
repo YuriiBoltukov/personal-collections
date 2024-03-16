@@ -9,7 +9,7 @@ function prepareCollection(collection: any) {
 
 async function collections(req: Request, res: Response) {
   //const collectionsDB = await Collection.find({});
-  //const collections = collectionsDB.map(prepareCollection);
+  //const collectionsMock = collectionsDB.map(prepareCollection);
   //throw new Error('BROKEN')
 
   const collections = [

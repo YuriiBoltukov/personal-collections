@@ -1,5 +1,9 @@
-import { CollectionItemsList } from './CollectionItemsList/CollectionItemsList.tsx';
-import { CollectionList } from './CollectionList/CollectionList.tsx';
-import { Search } from './Search/Search.tsx';
+import { CollectionItemsListComponent } from './CollectionItemsList/CollectionItemsList.component.tsx';
+import { CollectionListComponent } from './CollectionList/CollectionList.component.tsx';
+import { SearchComponent } from './Search/Search.component.tsx';
 
-export { CollectionItemsList, CollectionList, Search };
+export {
+  CollectionItemsListComponent,
+  CollectionListComponent,
+  SearchComponent,
+};

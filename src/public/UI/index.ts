@@ -1,4 +1,4 @@
-import { CollectionItem } from './CollectionItem/CollectionItem.tsx';
-import { Tags } from './Tags/Tags.tsx';
+import { CollectionItemUi } from './CollectionItem/CollectionItem.ui.tsx';
+import { TagsUi } from './Tags/Tags.ui.tsx';
 
-export { CollectionItem, Tags };
+export { CollectionItemUi, TagsUi };

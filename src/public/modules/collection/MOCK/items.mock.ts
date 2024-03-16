@@ -1,4 +1,4 @@
-export const items = [
+export const itemsMock = [
   {
     id: '1',
     name: 'name',

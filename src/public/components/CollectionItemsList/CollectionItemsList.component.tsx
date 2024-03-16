@@ -2,10 +2,10 @@ import React from 'react';
 import { List } from 'antd';
 import { useSelector } from 'react-redux';
 import { Item } from '../../modules/collection';
-import { CollectionItem } from '../../UI';
+import { CollectionItemUi } from '../../UI';
 import { State } from '../../../store/models/state.interface.ts';
 
-export const CollectionItemsList: React.FC = () => {
+export const CollectionItemsListComponent: React.FC = () => {
   const items = useSelector((state: State) => state.collections.items);
 
   return (
@@ -13,7 +13,7 @@ export const CollectionItemsList: React.FC = () => {
       dataSource={items}
       renderItem={(item: Item) => (
         <List.Item>
-          <CollectionItem item={item} />
+          <CollectionItemUi item={item} />
         </List.Item>
       )}
     />

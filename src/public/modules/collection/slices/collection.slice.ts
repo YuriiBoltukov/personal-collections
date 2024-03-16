@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { collections } from '../MOCK/collections.ts';
-import { items } from '../MOCK/items.ts';
+import { collectionsMock } from '../MOCK/collections.mock.ts';
+import { itemsMock } from '../MOCK/items.mock.ts';
 
 const initialState = {
-  collections: collections,
-  items: items,
+  collections: collectionsMock,
+  items: itemsMock,
 };
 
 const collectionSlice = createSlice({

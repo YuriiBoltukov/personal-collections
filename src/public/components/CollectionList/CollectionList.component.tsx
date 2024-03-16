@@ -6,7 +6,7 @@ import Search from 'antd/es/input/Search';
 import { useSelector } from 'react-redux';
 import { State } from '../../../store/models/state.interface.ts';
 
-export const CollectionList: React.FC = () => {
+export const CollectionListComponent: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize] = useState(10);
   const navigate = useNavigate();

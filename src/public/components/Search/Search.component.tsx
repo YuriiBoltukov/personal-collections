@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
-export function Search() {
+export function SearchComponent() {
   const [search, setSearch] = useState('');
   const history = useNavigate();
 
@@ -18,7 +18,7 @@ export function Search() {
       <input
         type="text"
         className="form-control"
-        placeholder="Search"
+        placeholder="SearchComponent"
         aria-label="Recipient's username"
         aria-describedby="basic-addon2"
         value={search}
@@ -30,7 +30,7 @@ export function Search() {
           type="button"
           onClick={handleSearch}
         >
-          Search
+          SearchComponent
         </button>
       </div>
     </div>

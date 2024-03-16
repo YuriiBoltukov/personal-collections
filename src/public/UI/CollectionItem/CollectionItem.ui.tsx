@@ -1,6 +1,6 @@
 import { Tag } from 'antd';
 import { Item } from '../../modules/collection';
-export function CollectionItem({ item }: { item: Item }) {
+export function CollectionItemUi({ item }: { item: Item }) {
   return (
     <div
       style={{

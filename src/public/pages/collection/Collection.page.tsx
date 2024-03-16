@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Collection } from '../../modules/collection';
-import { collections } from '../../modules/collection/MOCK/collections.ts';
-import { CollectionItemsList } from '../../components';
+import { collectionsMock } from '../../modules/collection/MOCK/collections.mock.ts';
+import { CollectionItemsListComponent } from '../../components';
 
 const CollectionPage = () => {
   const [collection, setCollection] = useState<Collection | null>(null);
   const { id } = useParams();
   useEffect(() => {
-    const selectedCollection = collections.find(
+    const selectedCollection = collectionsMock.find(
       collection => collection.id === id,
     );
     if (selectedCollection) {
@@ -25,7 +25,7 @@ const CollectionPage = () => {
       <h1>{collection.name}</h1>
       <p>{collection.description}</p>
       <p>{Date()}</p>
-      <CollectionItemsList />
+      <CollectionItemsListComponent />
     </div>
   );
 };

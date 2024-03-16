@@ -10,7 +10,7 @@ function prepareCollection(collection: any) {
 
 export async function getCollections(req: Request, res: Response) {
   //const collectionsDB = await Collection.find({});
-  //const collections = collectionsDB.map(prepareCollection);
+  //const collectionsMock = collectionsDB.map(prepareCollection);
   //throw new Error('BROKEN')
   const categoriesDB = await Collection.find({});
   //const categories = categoriesDB.map(prepareCategory);
@@ -27,7 +27,7 @@ export async function getCollections(req: Request, res: Response) {
 
 export async function createCollection(req: Request, res: Response) {
   //const collectionsDB = await Collection.find({});
-  //const collections = collectionsDB.map(prepareCollection);
+  //const collectionsMock = collectionsDB.map(prepareCollection);
   //throw new Error('BROKEN')
 
   const categoriesDB = await Collection.create(req.body);

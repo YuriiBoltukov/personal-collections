@@ -24,7 +24,7 @@ app.use(function (req: Request, res: Response, next: NextFunction) {
 
 app.use(bodyParser.json());
 
-app.use('/collections', collectionsRouter);
+app.use('/collectionsMock', collectionsRouter);
 app.use('/user', userRouter);
 app.use('/registration', registrationRouter);
 app.use('/login', loginRouter);

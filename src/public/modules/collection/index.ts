@@ -1,9 +1,9 @@
 import { Collection } from './models/collection.interface.ts';
-import { Item } from './models/interface.item.ts';
-import { ItemDetails } from './models/interface.itemDetails.ts';
-import { rootReducer } from './reducers/reducers.ts';
-import { collectionSliceReducer } from './slice/collectionSlice.ts';
-import { CollectionState } from './models/interface.collectionState.ts';
+import { Item } from './models/item.interface.ts';
+import { ItemDetails } from './models/itemDetails.interface.ts';
+import { rootReducer } from './reducers/reducers.reducer.ts';
+import { collectionSliceReducer } from './slices/collection.slice.ts';
+import { CollectionState } from './models/collectionState.interface.ts';
 
 export type { Collection, Item, ItemDetails, CollectionState };
 export { rootReducer, collectionSliceReducer };

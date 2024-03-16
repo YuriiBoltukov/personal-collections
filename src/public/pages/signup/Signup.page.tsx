@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Input, Button, message } from 'antd';
 
-const Signup: React.FC = () => {
+const SignupPage: React.FC = () => {
   const [formData, setFormData] = useState({
     username: '',
     password: '',
@@ -61,4 +61,4 @@ const Signup: React.FC = () => {
   );
 };
 
-export default Signup;
+export default SignupPage;
