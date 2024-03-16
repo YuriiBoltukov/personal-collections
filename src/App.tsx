@@ -13,8 +13,8 @@ import Home                             from './components/Home.tsx';
 import { Role } from './enum/role.enum.ts';
 import { User } from './models/interfaces.user.ts';
 import CreateCollection                     from './components/CreateCollection/CreateCollection.tsx';
-import CollectionList                       from './components/CollectionList/CollectionList.tsx';
-import CollectionPage                       from './public/collectionPage/CollectionPage.tsx';
+import CollectionList from './components/CollectionList/CollectionList.tsx';
+import CollectionPage     from './public/collection/Collection.tsx';
 function App() {
   const [user, setUser]: [ null | User, (value: User) => void] = useState<null | User>(null)
   const isAdmin = user ? user.role === Role.admin : false

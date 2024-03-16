@@ -2,22 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { List, Pagination } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
 import { Collection }                 from '../../models/interface.collection.ts';
-import { mock }                       from '../../MOCK/mock.ts';
 import { useNavigate }                from 'react-router-dom';
 import Search                         from 'antd/es/input/Search';
+import { useSelector }                from 'react-redux';
 
 
 
 const CollectionList: React.FC = () => {
-  const [collections, setCollections] = useState<Collection[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize] = useState(10);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    //получение коллекций
-    setCollections(mock)
-  }, []);
+  const collections = useSelector((state: Collection[]) => state.collections.collections);
 
   useEffect(() => {
     setCurrentPage(1);
@@ -28,7 +23,7 @@ const CollectionList: React.FC = () => {
   };
 
   const onItemClick = (collectionId: string) => {
-    navigate(`/collections/${collectionId}`);
+    navigate(`/collection/${collectionId}`);
   };
 
   return (

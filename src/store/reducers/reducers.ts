@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import counterReducer from '../slice/counterSlice.ts';
+import collectionsReducer      from '../slice/collectionSlice';
 
 const rootReducer = combineReducers({
-  counter: counterReducer,
+  collections: collectionsReducer,
 });
 
 export default rootReducer;
