@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { useState }    from 'react';
+import { useState } from 'react';
 
 function Search() {
   const [search, setSearch] = useState('');
@@ -9,7 +9,7 @@ function Search() {
     history(`/searchResult`);
   };
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     setSearch(event.target.value);
   };
   return (
@@ -24,7 +24,11 @@ function Search() {
         onChange={handleChange}
       />
       <div className="input-group-append">
-        <button className="btn btn-outline-secondary" type="button" onClick={handleSearch}>
+        <button
+          className="btn btn-outline-secondary"
+          type="button"
+          onClick={handleSearch}
+        >
           Search
         </button>
       </div>

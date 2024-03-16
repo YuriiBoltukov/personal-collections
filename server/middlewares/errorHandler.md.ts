@@ -1,6 +1,11 @@
-import {Response, Request, NextFunction} from "express";
+import { Response, Request, NextFunction } from 'express';
 
-function errorHandlerMd(err: any, req: Request, res: Response, next: NextFunction) {
+function errorHandlerMd(
+  err: any,
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) {
   const errStatus = err.status || 500;
   const errMsg = err.message || 'Internal server error';
 
@@ -9,7 +14,7 @@ function errorHandlerMd(err: any, req: Request, res: Response, next: NextFunctio
     status: errStatus,
     message: errMsg,
     stack: process.env.NODE_ENV === 'development' ? err.stack : {},
-  })
+  });
 }
 
 export default errorHandlerMd;

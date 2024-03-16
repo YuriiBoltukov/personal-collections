@@ -1,15 +1,16 @@
 import { useState, useEffect } from 'react';
-import { useParams }   from 'react-router-dom';
-import { Collection }  from '../../modules/collection/models/interface.collection.ts';
+import { useParams } from 'react-router-dom';
+import { Collection } from '../../modules/collection/models/interface.collection.ts';
 import { collections } from '../../modules/collection/MOCK/collections.ts';
 import CollectionItemsList from '../../components/CollectionItemsList/CollectionItemsList.tsx';
 
-
 const CollectionPage = () => {
   const [collection, setCollection] = useState<Collection | null>(null);
-  const {id} = useParams()
+  const { id } = useParams();
   useEffect(() => {
-    const selectedCollection = collections.find( collection => collection.id === id);
+    const selectedCollection = collections.find(
+      collection => collection.id === id,
+    );
     if (selectedCollection) {
       setCollection(selectedCollection);
     }
@@ -23,7 +24,7 @@ const CollectionPage = () => {
     <div>
       <h1>{collection.name}</h1>
       <p>{collection.description}</p>
-      <p>{ Date() }</p>
+      <p>{Date()}</p>
       <CollectionItemsList />
     </div>
   );

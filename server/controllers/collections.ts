@@ -1,4 +1,4 @@
-import {Response, Request} from "express";
+import { Response, Request } from 'express';
 
 function prepareCollection(collection: any) {
   return {
@@ -15,11 +15,11 @@ async function collections(req: Request, res: Response) {
   const collections = [
     {
       id: 12,
-      name: 'Vasya'
-    }
-  ]
+      name: 'Vasya',
+    },
+  ];
 
-  res.send(collections)
+  res.send(collections);
 }
 
 export default collections;

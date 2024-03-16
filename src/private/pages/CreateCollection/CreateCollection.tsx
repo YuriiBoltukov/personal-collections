@@ -1,8 +1,7 @@
-import React, { useId, useState }     from 'react';
+import React, { useId, useState } from 'react';
 import { Button, Form, Input, Modal } from 'antd';
-import { Item }                       from '../../../public/modules/collection/models/interface.item.ts';
-import { Collection }                 from '../../../public/modules/collection/models/interface.collection.ts';
-
+import { Item } from '../../../public/modules/collection/models/interface.item.ts';
+import { Collection } from '../../../public/modules/collection/models/interface.collection.ts';
 
 const CreateCollection: React.FC = () => {
   const [visible, setVisible] = useState<boolean>(true);
@@ -46,7 +45,7 @@ const CreateCollection: React.FC = () => {
 
   return (
     <Modal
-      open={ visible }
+      open={visible}
       title="Create Collection"
       okText="Create"
       cancelText="Cancel"
@@ -60,7 +59,11 @@ const CreateCollection: React.FC = () => {
         <Form.Item name="theme" label="Theme" rules={[{ required: true }]}>
           <Input />
         </Form.Item>
-        <Form.Item name="description" label="Description" rules={[{ required: true }]}>
+        <Form.Item
+          name="description"
+          label="Description"
+          rules={[{ required: true }]}
+        >
           <Input.TextArea />
         </Form.Item>
         <Form.Item name="image" label="Image">

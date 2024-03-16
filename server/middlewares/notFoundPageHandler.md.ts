@@ -1,4 +1,4 @@
-import {Response, Request} from "express";
+import { Response, Request } from 'express';
 
 function notFoundHandlerMd(err: any, req: Request, res: Response) {
   const errStatus = 404;

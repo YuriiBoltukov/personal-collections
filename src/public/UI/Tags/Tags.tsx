@@ -10,7 +10,7 @@ const tagInputStyle: React.CSSProperties = {
   verticalAlign: 'top',
 };
 
-function Tags( ) {
+function Tags() {
   const { token } = theme.useToken();
   const [tags, setTags] = useState<string[]>(['Unremovable', 'Tag 2', 'Tag 3']);
   const [inputVisible, setInputVisible] = useState(false);
@@ -31,7 +31,7 @@ function Tags( ) {
   }, [editInputValue]);
 
   const handleClose = (removedTag: string) => {
-    const newTags = tags.filter((tag) => tag !== removedTag);
+    const newTags = tags.filter(tag => tag !== removedTag);
     console.log(newTags);
     setTags(newTags);
   };
@@ -95,7 +95,7 @@ function Tags( ) {
             onClose={() => handleClose(tag)}
           >
             <span
-              onDoubleClick={(e) => {
+              onDoubleClick={e => {
                 if (index !== 0) {
                   setEditInputIndex(index);
                   setEditInputValue(tag);
@@ -132,7 +132,6 @@ function Tags( ) {
         </Tag>
       )}
     </Flex>
-
   );
 }
 

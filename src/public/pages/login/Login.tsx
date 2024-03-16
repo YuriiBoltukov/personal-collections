@@ -11,8 +11,7 @@ const Login: React.FC = () => {
       return;
     }
 
-    console.log("Username:", username, "Password:", password);
-
+    console.log('Username:', username, 'Password:', password);
   };
 
   return (
@@ -24,7 +23,7 @@ const Login: React.FC = () => {
           name="username"
           rules={[{ required: true, message: 'Введите имя пользователя' }]}
         >
-          <Input value={username} onChange={(e) => setUsername(e.target.value)} />
+          <Input value={username} onChange={e => setUsername(e.target.value)} />
         </Form.Item>
 
         <Form.Item
@@ -32,7 +31,10 @@ const Login: React.FC = () => {
           name="password"
           rules={[{ required: true, message: 'Введите пароль' }]}
         >
-          <Input.Password value={password} onChange={(e) => setPassword(e.target.value)} />
+          <Input.Password
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+          />
         </Form.Item>
 
         <Form.Item>

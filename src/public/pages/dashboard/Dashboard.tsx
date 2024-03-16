@@ -1,4 +1,4 @@
-import Tags             from '../../UI/Tags/Tags.tsx';
+import Tags from '../../UI/Tags/Tags.tsx';
 import CreateCollection from '../../../private/pages/CreateCollection/CreateCollection.tsx';
 
 function Dashboard() {
@@ -7,9 +7,7 @@ function Dashboard() {
       Dashboard
       <CreateCollection />
       <div>
-        Collections:
-
-        Tags:
+        Collections: Tags:
         <div>
           <Tags />
         </div>

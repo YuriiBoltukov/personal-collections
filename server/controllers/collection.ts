@@ -1,5 +1,5 @@
-import {Response, Request} from "express";
-import {Collection} from "../models/Collection";
+import { Response, Request } from 'express';
+import { Collection } from '../models/Collection';
 
 function prepareCollection(collection: any) {
   return {
@@ -14,15 +14,15 @@ export async function getCollections(req: Request, res: Response) {
   //throw new Error('BROKEN')
   const categoriesDB = await Collection.find({});
   //const categories = categoriesDB.map(prepareCategory);
-  console.log(categoriesDB)
+  console.log(categoriesDB);
   const collections = [
     {
       id: 12,
-      name: 'Vasya'
-    }
-  ]
+      name: 'Vasya',
+    },
+  ];
 
-  res.send(collections)
+  res.send(collections);
 }
 
 export async function createCollection(req: Request, res: Response) {
@@ -30,11 +30,9 @@ export async function createCollection(req: Request, res: Response) {
   //const collections = collectionsDB.map(prepareCollection);
   //throw new Error('BROKEN')
 
-
-
   const categoriesDB = await Collection.create(req.body);
   //const categories = categoriesDB.map(prepareCategory);
-  console.log(req.body)
+  console.log(req.body);
 
-  res.send(req.body)
+  res.send(req.body);
 }
