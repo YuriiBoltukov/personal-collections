@@ -10,7 +10,7 @@ const tagInputStyle: React.CSSProperties = {
   verticalAlign: 'top',
 };
 
-function Tags() {
+export function Tags() {
   const { token } = theme.useToken();
   const [tags, setTags] = useState<string[]>(['Unremovable', 'Tag 2', 'Tag 3']);
   const [inputVisible, setInputVisible] = useState(false);
@@ -134,5 +134,3 @@ function Tags() {
     </Flex>
   );
 }
-
-export default Tags;

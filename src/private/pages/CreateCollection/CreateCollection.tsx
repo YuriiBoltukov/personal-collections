@@ -1,7 +1,7 @@
 import React, { useId, useState } from 'react';
 import { Button, Form, Input, Modal } from 'antd';
-import { Item } from '../../../public/modules/collection/models/interface.item.ts';
-import { Collection } from '../../../public/modules/collection/models/interface.collection.ts';
+import { Item } from '../../../public/modules/collection';
+import { Collection } from '../../../public/modules/collection';
 
 const CreateCollection: React.FC = () => {
   const [visible, setVisible] = useState<boolean>(true);

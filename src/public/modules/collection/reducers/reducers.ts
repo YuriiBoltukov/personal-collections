@@ -1,8 +1,6 @@
 import { combineReducers } from 'redux';
-import collectionsReducer from '../slice/collectionSlice.ts';
+import { collectionSliceReducer } from '../slice/collectionSlice.ts';
 
-const rootReducer = combineReducers({
-  collections: collectionsReducer,
+export const rootReducer = combineReducers({
+  collections: collectionSliceReducer,
 });
-
-export default rootReducer;

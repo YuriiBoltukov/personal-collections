@@ -13,4 +13,4 @@ const collectionSlice = createSlice({
   reducers: {},
 });
 
-export default collectionSlice.reducer;
+export const collectionSliceReducer = collectionSlice.reducer;

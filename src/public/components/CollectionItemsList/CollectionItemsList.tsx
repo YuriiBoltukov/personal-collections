@@ -1,17 +1,17 @@
 import React from 'react';
 import { List } from 'antd';
 import { useSelector } from 'react-redux';
-import CollectionItem from '../CollectionItem/CollectionItem.tsx';
 import { RootState } from '@reduxjs/toolkit/query';
-import { ItemType } from 'antd/es/menu/hooks/useItems';
+import { Item } from '../../modules/collection';
+import { CollectionItem } from '../../UI';
 
-const CollectionItemsList: React.FC = () => {
+export const CollectionItemsList: React.FC = () => {
   const items = useSelector((state: RootState) => state.collections.items);
 
   return (
     <List
       dataSource={items}
-      renderItem={(item: ItemType) => (
+      renderItem={(item: Item) => (
         <List.Item>
           <CollectionItem item={item} />
         </List.Item>
@@ -19,5 +19,3 @@ const CollectionItemsList: React.FC = () => {
     />
   );
 };
-
-export default CollectionItemsList;

@@ -9,11 +9,11 @@ import SearchResultPage from './public/pages/searchResultPage/SearchResultPage.t
 import Signup from './public/pages/signup/Signup.tsx';
 import AdminPanel from './private/pages/adminPanel/AdminPanel.tsx';
 import PrivateOffice from './private/pages/privateOffice/PrivateOffice.tsx';
-import { Role } from './public/modules/user/models/role.enum.ts';
-import { User } from './public/modules/user/models/interfaces.user.ts';
+import { Role } from './public/modules/user';
+import { User } from './public/modules/user';
 import CreateCollection from './private/pages/CreateCollection/CreateCollection.tsx';
-import CollectionList from './public/components/CollectionList/CollectionList.tsx';
 import CollectionPage from './public/pages/collection/Collection.tsx';
+import { CollectionList } from './public/components';
 function App() {
   const [user, setUser]: [null | User, (value: User) => void] =
     useState<null | User>(null);

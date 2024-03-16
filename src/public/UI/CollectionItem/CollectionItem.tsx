@@ -1,7 +1,6 @@
-import React from 'react';
 import { Tag } from 'antd';
-import Item from '../../modules/collection/models/interface.item.ts';
-function CollectionItem({ item }: Item) {
+import { Item } from '../../modules/collection';
+export function CollectionItem({ item }: Item) {
   return (
     <div
       style={{
@@ -21,5 +20,3 @@ function CollectionItem({ item }: Item) {
     </div>
   );
 }
-
-export default CollectionItem;

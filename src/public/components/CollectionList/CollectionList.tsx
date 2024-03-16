@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { List, Pagination } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
-import { Collection } from '../../modules/collection/models/interface.collection.ts';
+import { Collection } from '../../modules/collection';
 import { useNavigate } from 'react-router-dom';
 import Search from 'antd/es/input/Search';
 import { useSelector } from 'react-redux';
 
-const CollectionList: React.FC = () => {
+export const CollectionList: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize] = useState(10);
   const navigate = useNavigate();
@@ -52,5 +52,3 @@ const CollectionList: React.FC = () => {
     </div>
   );
 };
-
-export default CollectionList;

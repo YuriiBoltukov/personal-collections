@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Collection } from '../../modules/collection/models/interface.collection.ts';
+import { Collection } from '../../modules/collection';
 import { collections } from '../../modules/collection/MOCK/collections.ts';
-import CollectionItemsList from '../../components/CollectionItemsList/CollectionItemsList.tsx';
+import { CollectionItemsList } from '../../components';
 
 const CollectionPage = () => {
   const [collection, setCollection] = useState<Collection | null>(null);

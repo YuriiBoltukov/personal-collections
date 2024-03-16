@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
-function Search() {
+export function Search() {
   const [search, setSearch] = useState('');
   const history = useNavigate();
 
@@ -35,5 +35,3 @@ function Search() {
     </div>
   );
 }
-
-export default Search;
