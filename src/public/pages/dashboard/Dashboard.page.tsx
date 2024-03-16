@@ -1,4 +1,4 @@
-import CreateCollectionPage from '../../../private/pages/CreateCollection/CreateCollection.page.tsx';
+import CreateCollectionPage from '../../../private/pages/createCollection/CreateCollection.page.tsx';
 import { TagsUi } from '../../UI';
 
 function DashboardPage() {

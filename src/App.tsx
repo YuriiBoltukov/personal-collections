@@ -11,9 +11,9 @@ import AdminPanelPage from './private/pages/adminPanel/AdminPanel.page.tsx';
 import PrivateOfficePage from './private/pages/privateOffice/PrivateOffice.page.tsx';
 import { Role } from './public/modules/user';
 import { User } from './public/modules/user';
-import CreateCollectionPage from './private/pages/CreateCollection/CreateCollection.page.tsx';
+import CreateCollectionPage from './private/pages/createCollection/CreateCollection.page.tsx';
 import CollectionPage from './public/pages/collection/Collection.page.tsx';
-import { CollectionListComponent } from './public/components';
+import { CollectionsPage } from './public/pages/collections/Collections.page.tsx';
 function App() {
   const [user, setUser]: [null | User, (value: User) => void] =
     useState<null | User>(null);
@@ -69,7 +69,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<DashboardPage />} />
-        <Route path="/collection/" element={<CollectionListComponent />} />
+        <Route path="/collection/" element={<CollectionsPage />} />
         <Route path="/collection/:id" element={<CollectionPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/searchResult" element={<SearchResultPage />} />

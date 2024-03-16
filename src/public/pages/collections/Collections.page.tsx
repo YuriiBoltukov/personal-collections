@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { List, Pagination } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
-import Search from 'antd/es/input/Search';
 import { useSelector } from 'react-redux';
 import { State } from '../../../store/models/state.interface.ts';
+import { SearchComponent } from '../../components';
 
-export const CollectionListComponent: React.FC = () => {
+export const CollectionsPage: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize] = useState(10);
   const navigate = useNavigate();
@@ -28,7 +28,7 @@ export const CollectionListComponent: React.FC = () => {
 
   return (
     <div>
-      <Search />
+      <SearchComponent />
       <List
         itemLayout="horizontal"
         dataSource={collections.slice(
