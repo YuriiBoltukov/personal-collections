@@ -22,8 +22,9 @@ import CollectionDetailsPage from './public/pages/collectionDetails/CollectionDe
 import { CollectionsPage } from './public/pages/collections/Collections.page.tsx';
 import { Layout, Menu, theme } from 'antd';
 import { Content, Header } from 'antd/es/layout/layout';
-import { Footer } from 'antd/lib/layout/layout';
-import AnchorLink from 'antd/es/anchor/AnchorLink';
+import { FooterUI } from './shared/UI/footer/Footer.tsx';
+
+// another page with name like app.page or smth like that - src/shared/pages
 
 const ROUTES = (role: Role | undefined) => {
   return [
@@ -138,6 +139,7 @@ function App() {
   return (
     <Provider store={store}>
       <Layout style={{ minHeight: '100vh' }}>
+        // another cmpnt - src/shared/components
         <Header
           style={{
             position: 'sticky',
@@ -149,6 +151,7 @@ function App() {
           }}
         >
           <div className="demo-logo" />
+          // another cmpnt - src/shared/components
           <Menu
             theme="dark"
             mode="horizontal"
@@ -166,6 +169,7 @@ function App() {
               borderRadius: borderRadiusLG,
             }}
           >
+            // another entity - src/shared/modules/routing
             <Routes>
               <Route path="/" element={<DashboardPage />} />
               <Route path="/collections/" element={<CollectionsPage />} />
@@ -197,14 +201,7 @@ function App() {
             </Routes>
           </div>
         </Content>
-        <Footer style={{ textAlign: 'center' }}>
-          ©{new Date().getFullYear()} Created by{' '}
-          <AnchorLink
-            href={'https://github.com/YuriiBoltukov'}
-            title="YuriiBoltukov"
-            target="blank"
-          />
-        </Footer>
+        <FooterUI />
       </Layout>
     </Provider>
   );
