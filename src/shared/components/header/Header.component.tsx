@@ -1,9 +1,9 @@
-import { Menu } from 'antd';
 import { Header } from 'antd/es/layout/layout';
 import { NavLink, useLocation } from 'react-router-dom';
 import style from '../../../App.module.scss';
 import { useEffect, useState } from 'react';
 import { Role, User } from '../../../public/modules/user';
+import { MenuComponent } from '../menu/Menu.component.tsx';
 
 const ROUTES = (role: Role | undefined) => {
   return [
@@ -45,7 +45,7 @@ const ROUTES = (role: Role | undefined) => {
   ].filter(route => route.available);
 };
 
-function HeaderComponent() {
+export function HeaderComponent() {
   const location = useLocation();
   const [user, setUser]: [null | User, (value: User) => void] =
     useState<null | User>(null);
@@ -111,16 +111,10 @@ function HeaderComponent() {
       }}
     >
       <div className="demo-logo" />
-      // another cmpnt - src/shared/components
-      <Menu
-        theme="dark"
-        mode="horizontal"
+      <MenuComponent
+        menuItems={menuItems}
         defaultSelectedKeys={defaultSelectedKeys}
-        items={menuItems}
-        style={{ flex: 1, minWidth: 0 }}
       />
     </Header>
   );
 }
-
-export default HeaderComponent;
