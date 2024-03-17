@@ -9,7 +9,7 @@ export const CardListComponent: React.FC = () => {
   const items = useSelector((state: State) => state.collections.items);
 
   return (
-    <Flex wrap="wrap" gap="middle">
+    <Flex wrap="wrap" gap="middle" justify="space-between">
       {items.map((item: Item, i: number) => {
         return <CardUi key={i} item={item} />;
       })}

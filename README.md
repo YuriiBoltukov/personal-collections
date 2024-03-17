@@ -35,8 +35,6 @@ Optional requirements include authentication via social networks, adding custom 
 
 PersonalCollections aims to provide a robust platform for managing personal collections, adhering to specified requirements and technical agreements while emphasizing independent implementation and code quality.
 
-
-
 # Setting up React with TypeScript and Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
