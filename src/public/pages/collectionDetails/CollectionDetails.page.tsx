@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Collection } from '../../modules/collection';
-import { collectionsMock } from '../../modules/collection/MOCK/collections.mock.ts';
+import { Collection } from '../../modules/collections';
+import { collectionsMock } from '../../modules/collections/MOCK/collections.mock.ts';
 import { CardListComponent } from '../../components';
 
-const CollectionPage = () => {
+const CollectionDetailsPage = () => {
   const [collection, setCollection] = useState<Collection | null>(null);
   const { id } = useParams();
   useEffect(() => {
@@ -30,4 +30,4 @@ const CollectionPage = () => {
   );
 };
 
-export default CollectionPage;
+export default CollectionDetailsPage;

@@ -1,5 +1,5 @@
 import CreateCollectionPage from '../../../private/pages/createCollection/CreateCollection.page.tsx';
-import { TagsUi } from '../../UI';
+import { TagControlUi } from '../../UI';
 
 function DashboardPage() {
   return (
@@ -9,7 +9,7 @@ function DashboardPage() {
       <div>
         Collections: Tags:
         <div>
-          <TagsUi />
+          <TagControlUi />
         </div>
       </div>
     </div>

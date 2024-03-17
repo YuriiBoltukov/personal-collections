@@ -10,7 +10,8 @@ const tagInputStyle: React.CSSProperties = {
   verticalAlign: 'top',
 };
 
-export function TagsUi() {
+// should contain only logic with edit and create tags
+export function TagControlUi() {
   const { token } = theme.useToken();
   const [tags, setTags] = useState<string[]>(['Unremovable', 'Tag 2', 'Tag 3']);
   const [inputVisible, setInputVisible] = useState(false);

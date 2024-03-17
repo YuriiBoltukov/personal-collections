@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { State } from '../../../store/models/state.interface.ts';
 import { SearchComponent } from '../../components';
+import { Collection } from '../../modules/collections';
 
 export const CollectionsPage: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -23,7 +24,7 @@ export const CollectionsPage: React.FC = () => {
   };
 
   const onItemClick = (collectionId: string) => {
-    navigate(`/collection/${collectionId}`);
+    navigate(`/collections/${collectionId}`);
   };
 
   return (
@@ -35,7 +36,7 @@ export const CollectionsPage: React.FC = () => {
           (currentPage - 1) * pageSize,
           currentPage * pageSize,
         )}
-        renderItem={item => (
+        renderItem={(item: Collection) => (
           <List.Item onClick={() => onItemClick(item.id)}>
             <List.Item.Meta title={item.name} />
             <RightOutlined style={{ fontSize: 16, color: '#08c' }} />

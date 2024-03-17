@@ -78,7 +78,7 @@ const CreateCollectionPage: React.FC = () => {
             style={{ marginBottom: 8 }}
           />
           <Input
-            placeholder="TagsUi (comma separated)"
+            placeholder="TagControlUi (comma separated)"
             value={itemTags.join(',')}
             onChange={event => setItemTags(event.target.value.split(','))}
             style={{ marginBottom: 8 }}

@@ -10,7 +10,22 @@ const initialState = {
 const collectionSlice = createSlice({
   name: 'collectionsReducer',
   initialState,
-  reducers: {},
+  reducers: {
+    addCollections: {
+      reducer: (state, action) => {
+        state.collections.push(action.payload);
+      },
+      prepare(value) {
+        return {
+          payload: {
+            key: 'dfgdr',
+            value: value,
+          },
+        };
+      },
+    },
+  },
 });
 
+export const { addCollections } = collectionSlice.actions;
 export const collectionSliceReducer = collectionSlice.reducer;

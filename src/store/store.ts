@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { rootReducer } from '../public/modules/collection';
+import { collectionSliceReducer } from '../public/modules/collections';
 
 const store = configureStore({
-  reducer: rootReducer,
+  reducer: {
+    collections: collectionSliceReducer,
+  },
 });
 
 export default store;

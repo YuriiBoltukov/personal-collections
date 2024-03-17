@@ -18,7 +18,7 @@ import PrivateOfficePage from './private/pages/privateOffice/PrivateOffice.page.
 import { Role } from './public/modules/user';
 import { User } from './public/modules/user';
 import CreateCollectionPage from './private/pages/createCollection/CreateCollection.page.tsx';
-import CollectionPage from './public/pages/collection/Collection.page.tsx';
+import CollectionDetailsPage from './public/pages/collectionDetails/CollectionDetails.page.tsx';
 import { CollectionsPage } from './public/pages/collections/Collections.page.tsx';
 import { Layout, Menu, theme } from 'antd';
 import { Content, Header } from 'antd/es/layout/layout';
@@ -48,8 +48,8 @@ const ROUTES = (role: Role | undefined) => {
       available: true,
     },
     {
-      name: 'collection',
-      path: '/collection',
+      name: 'collections',
+      path: '/collections',
       available: true,
     },
     {
@@ -122,6 +122,8 @@ function App() {
     return menuItems[0].key;
   }
 
+  // todo resolve public route
+  // todo rewrite so weak logic
   const PrivateRoute = ({ children }: { children: React.ReactNode }) => {
     let available = false;
     const path = Array.isArray(children) ? children[1] : '';
@@ -135,7 +137,7 @@ function App() {
 
   return (
     <Provider store={store}>
-      <Layout>
+      <Layout style={{ minHeight: '100vh' }}>
         <Header
           style={{
             position: 'sticky',
@@ -155,7 +157,7 @@ function App() {
             style={{ flex: 1, minWidth: 0 }}
           />
         </Header>
-        <Content style={{ padding: '0 48px' }}>
+        <Content style={{ padding: '0 16px' }}>
           <div
             style={{
               padding: 24,
@@ -166,8 +168,11 @@ function App() {
           >
             <Routes>
               <Route path="/" element={<DashboardPage />} />
-              <Route path="/collection/" element={<CollectionsPage />} />
-              <Route path="/collection/:id" element={<CollectionPage />} />
+              <Route path="/collections/" element={<CollectionsPage />} />
+              <Route
+                path="/collections/:id"
+                element={<CollectionDetailsPage />}
+              />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/searchResult" element={<SearchResultPage />} />
               <Route path="/signup" element={<SignupPage />} />

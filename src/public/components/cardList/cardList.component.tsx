@@ -2,7 +2,7 @@ import React from 'react';
 import { List } from 'antd';
 import { useSelector } from 'react-redux';
 import { Item } from '../../modules/collection';
-import { CollectionItemUi } from '../../UI';
+import { CardUi } from '../../UI';
 import { State } from '../../../store/models/state.interface.ts';
 
 export const CardListComponent: React.FC = () => {
@@ -13,7 +13,7 @@ export const CardListComponent: React.FC = () => {
       dataSource={items}
       renderItem={(item: Item) => (
         <List.Item>
-          <CollectionItemUi item={item} />
+          <CardUi item={item} />
         </List.Item>
       )}
     />

@@ -1,6 +1,6 @@
 import { Tag } from 'antd';
-import { Item } from '../../modules/collection';
-export function CollectionItemUi({ item }: { item: Item }) {
+import { Item } from '../../modules/collections';
+export function CardUi({ item }: { item: Item }) {
   return (
     <div
       style={{
@@ -13,7 +13,7 @@ export function CollectionItemUi({ item }: { item: Item }) {
       <div>Name: {item.name}</div>
       <div>
         Tags:{' '}
-        {item.tags.map(tag => (
+        {item.tags.map((tag: string) => (
           <Tag key={tag}>{tag}</Tag>
         ))}
       </div>
