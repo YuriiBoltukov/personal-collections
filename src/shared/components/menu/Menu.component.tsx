@@ -1,9 +1,7 @@
 import { Menu } from 'antd';
+import { MenuItem } from './menu.interface.ts';
 interface PropTypes {
-  menuItems: {
-    key: string;
-    label: JSX.Element;
-  }[];
+  menuItems: MenuItem[];
   defaultSelectedKeys: string[];
 }
 export function MenuComponent(props: PropTypes) {

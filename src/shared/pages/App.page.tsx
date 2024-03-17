@@ -1,4 +1,4 @@
-import { User } from '../../public/modules/user';
+import { Role, User } from '../../public/modules/user';
 import { useEffect, useState } from 'react';
 import { Provider } from 'react-redux';
 import { Layout } from 'antd';
@@ -28,8 +28,8 @@ export function AppPage() {
   return (
     <Provider store={store}>
       <Layout style={{ minHeight: '100vh' }}>
-        <HeaderComponent />
-        {user && <ContentComponent user={user} />}
+        <HeaderComponent role={user?.role || Role.undefined} />
+        <ContentComponent role={user?.role || Role.undefined} />
         <FooterUI />
       </Layout>
     </Provider>

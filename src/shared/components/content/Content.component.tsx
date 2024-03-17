@@ -1,9 +1,9 @@
 import { Content } from 'antd/es/layout/layout';
-import { User } from '../../../public/modules/user';
+import { Role } from '../../../public/modules/user';
 import { theme } from 'antd';
 import { RoutingComponent } from '../routing/Routing.component.tsx';
 
-export function ContentComponent({ user }: { user: User }) {
+export function ContentComponent({ role }: { role: Role }) {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
@@ -18,7 +18,7 @@ export function ContentComponent({ user }: { user: User }) {
           borderRadius: borderRadiusLG,
         }}
       >
-        <RoutingComponent role={user.role} />
+        <RoutingComponent role={role} />
       </div>
     </Content>
   );
