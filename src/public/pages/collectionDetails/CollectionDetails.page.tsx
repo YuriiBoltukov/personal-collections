@@ -1,22 +1,15 @@
-import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Collection } from '../../modules/collections';
-import { collectionsMock } from '../../modules/collections/MOCK/collections.mock.ts';
 import { CardListComponent } from '../../components';
 import Title from 'antd/es/typography/Title';
 import { Divider, Flex, Image, Space } from 'antd';
+import { useSelector } from 'react-redux';
+import { State } from '../../../store/models/state.interface.ts';
 
 const CollectionDetailsPage = () => {
-  const [collection, setCollection] = useState<Collection | null>(null);
   const { id } = useParams();
-  useEffect(() => {
-    const selectedCollection = collectionsMock.find(
-      collection => collection.id === id,
-    );
-    if (selectedCollection) {
-      setCollection(selectedCollection);
-    }
-  }, [id]);
+  const collection = useSelector((state: State) =>
+    state.collections.collections.find(collection => collection.id === id),
+  );
 
   if (!collection) {
     return <div>Loading...</div>;

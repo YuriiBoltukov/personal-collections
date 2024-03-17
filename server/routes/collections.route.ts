@@ -1,5 +1,5 @@
-import { getCollections } from '../controllers/collection';
 import { Response, Request, Router, NextFunction } from 'express';
+import getCollections from '../controllers/collections';
 const collectionsRouter = Router();
 
 collectionsRouter.get(

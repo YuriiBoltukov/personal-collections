@@ -4,7 +4,8 @@ import collectionsRouter from './routes/collections.route';
 import userRouter from './routes/user.route';
 import notFoundHandlerMd from './middlewares/notFoundPageHandler.md';
 import errorHandlerMd from './middlewares/errorHandler.md';
-const express = require('express');
+import express from 'express';
+
 const PORT = process.env.PORT || 1000;
 const app = express();
 
@@ -24,7 +25,7 @@ app.use(function (req: Request, res: Response, next: NextFunction) {
 
 app.use(bodyParser.json());
 
-app.use('/collectionsMock', collectionsRouter);
+app.use('/collections', collectionsRouter);
 app.use('/user', userRouter);
 app.use('/registration', registrationRouter);
 app.use('/login', loginRouter);

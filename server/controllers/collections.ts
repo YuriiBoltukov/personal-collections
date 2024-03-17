@@ -1,4 +1,5 @@
 import { Response, Request } from 'express';
+import { collectionsMock } from '../MOCK/collections.mock';
 
 function prepareCollection(collection: any) {
   return {
@@ -7,19 +8,12 @@ function prepareCollection(collection: any) {
   };
 }
 
-async function collections(req: Request, res: Response) {
+async function getCollections(req: Request, res: Response) {
   //const collectionsDB = await Collection.find({});
   //const collectionsMock = collectionsDB.map(prepareCollection);
   //throw new Error('BROKEN')
 
-  const collections = [
-    {
-      id: 12,
-      name: 'Vasya',
-    },
-  ];
-
-  res.send(collections);
+  res.send(collectionsMock);
 }
 
-export default collections;
+export default getCollections;

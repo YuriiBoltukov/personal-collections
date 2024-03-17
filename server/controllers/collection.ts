@@ -8,7 +8,7 @@ function prepareCollection(collection: any) {
   };
 }
 
-export async function getCollections(req: Request, res: Response) {
+export async function getCollectionById(req: Request, res: Response) {
   //const collectionsDB = await Collection.find({});
   //const collectionsMock = collectionsDB.map(prepareCollection);
   //throw new Error('BROKEN')

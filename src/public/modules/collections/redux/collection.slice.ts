@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { collectionsMock } from '../MOCK/collections.mock.ts';
 import { itemsMock } from '../MOCK/items.mock.ts';
+import { setAllCollectionsAction } from './collection.action.ts';
+import { CollectionState } from '../models/collectionState.interface.ts';
 
-const initialState = {
-  collections: collectionsMock,
+const initialState: CollectionState = {
+  collections: [],
   items: itemsMock,
 };
 
@@ -11,21 +12,9 @@ const collectionSlice = createSlice({
   name: 'collectionsReducer',
   initialState,
   reducers: {
-    addCollections: {
-      reducer: (state, action) => {
-        state.collections.push(action.payload);
-      },
-      prepare(value) {
-        return {
-          payload: {
-            key: 'dfgdr',
-            value: value,
-          },
-        };
-      },
-    },
+    setAllCollections: setAllCollectionsAction(),
   },
 });
 
-export const { addCollections } = collectionSlice.actions;
+export const { setAllCollections } = collectionSlice.actions;
 export const collectionSliceReducer = collectionSlice.reducer;
