@@ -1,90 +1,30 @@
-import style from './App.module.scss';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Provider } from 'react-redux';
 import store from './store/store.ts';
-import {
-  Routes,
-  Route,
-  NavLink,
-  useLocation,
-  Navigate,
-} from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import DashboardPage from './public/pages/dashboard/Dashboard.page.tsx';
 import LoginPage from './public/pages/login/Login.page.tsx';
 import SearchResultPage from './public/pages/searchResultPage/SearchResult.page.tsx';
 import SignupPage from './public/pages/signup/Signup.page.tsx';
 import AdminPanelPage from './private/pages/adminPanel/AdminPanel.page.tsx';
 import PrivateOfficePage from './private/pages/privateOffice/PrivateOffice.page.tsx';
-import { Role } from './public/modules/user';
-import { User } from './public/modules/user';
+import { Role, User } from './public/modules/user';
 import CreateCollectionPage from './private/pages/createCollection/CreateCollection.page.tsx';
 import CollectionDetailsPage from './public/pages/collectionDetails/CollectionDetails.page.tsx';
 import { CollectionsPage } from './public/pages/collections/Collections.page.tsx';
-import { Layout, Menu, theme } from 'antd';
-import { Content, Header } from 'antd/es/layout/layout';
+import { Layout, theme } from 'antd';
+import { Content } from 'antd/es/layout/layout';
 import { FooterUI } from './shared/UI/footer/Footer.tsx';
+import HeaderComponent from './shared/components/header/Header.component.tsx';
 
 // another page with name like app.page or smth like that - src/shared/pages
-
-const ROUTES = (role: Role | undefined) => {
-  return [
-    {
-      name: 'dashboard',
-      path: '/',
-      available: true,
-    },
-    {
-      name: 'login',
-      path: '/login',
-      available: true,
-    },
-    {
-      name: 'signup',
-      path: '/signup',
-      available: true,
-    },
-    {
-      name: 'search result',
-      path: '/searchResult',
-      available: true,
-    },
-    {
-      name: 'collections',
-      path: '/collections',
-      available: true,
-    },
-    {
-      name: 'private office',
-      path: '/private/privateOffice',
-      available: role && [Role.user, Role.admin].includes(role),
-    },
-    {
-      name: 'admin panel',
-      path: '/private/admin',
-      available: role === Role.admin,
-    },
-  ].filter(route => route.available);
-};
 
 function App() {
   const [user, setUser]: [null | User, (value: User) => void] =
     useState<null | User>(null);
-  const location = useLocation();
-  let menuItems = getMenu();
-
-  const defaultSelectedKeys: string[] = [getCurrentActiveRoute()];
-  function getMenu() {
-    return ROUTES(user?.role).map(route => {
-      return {
-        key: route.path,
-        label: (
-          <NavLink className={style.nav_link} to={route.path}>
-            {route.name}
-          </NavLink>
-        ),
-      };
-    });
-  }
+  const {
+    token: { colorBgContainer, borderRadiusLG },
+  } = theme.useToken();
 
   async function getUser() {
     try {
@@ -95,32 +35,6 @@ function App() {
     } catch (error) {
       console.error('Error fetching data:', error);
     }
-  }
-
-  useEffect(() => {
-    getUser();
-  }, []);
-
-  useEffect(() => {
-    menuItems = getMenu();
-  }, [user]);
-
-  const {
-    token: { colorBgContainer, borderRadiusLG },
-  } = theme.useToken();
-
-  function getCurrentActiveRoute() {
-    const path = location.pathname;
-
-    const currentRoute = menuItems.find(route => {
-      return route.key === path;
-    });
-
-    if (currentRoute) {
-      return currentRoute.key;
-    }
-
-    return menuItems[0].key;
   }
 
   // todo resolve public route
@@ -136,30 +50,15 @@ function App() {
     return available ? <>{children}</> : <Navigate to={'/'} />;
   };
 
+  useEffect(() => {
+    getUser();
+  }, []);
+
   return (
     <Provider store={store}>
       <Layout style={{ minHeight: '100vh' }}>
         // another cmpnt - src/shared/components
-        <Header
-          style={{
-            position: 'sticky',
-            top: 0,
-            zIndex: 1,
-            width: '100%',
-            display: 'flex',
-            alignItems: 'center',
-          }}
-        >
-          <div className="demo-logo" />
-          // another cmpnt - src/shared/components
-          <Menu
-            theme="dark"
-            mode="horizontal"
-            defaultSelectedKeys={defaultSelectedKeys}
-            items={menuItems}
-            style={{ flex: 1, minWidth: 0 }}
-          />
-        </Header>
+        <HeaderComponent />
         <Content style={{ padding: '0 16px' }}>
           <div
             style={{
