@@ -4,4 +4,5 @@ export interface Collection {
   theme: string;
   description: string;
   image?: string;
+  createdDate: string;
 }

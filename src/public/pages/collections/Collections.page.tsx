@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { List, Pagination } from 'antd';
+import { Divider, List, Pagination, theme } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { State } from '../../../store/models/state.interface.ts';
 import { SearchComponent } from '../../components';
 import { Collection } from '../../modules/collections';
+import Title from 'antd/es/typography/Title';
 
 export const CollectionsPage: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize] = useState(10);
+  const [pageSize] = useState(5);
   const navigate = useNavigate();
   const collections = useSelector(
     (state: State) => state.collections.collections,
@@ -27,9 +28,15 @@ export const CollectionsPage: React.FC = () => {
     navigate(`/collections/${collectionId}`);
   };
 
+  const {
+    token: { colorLink },
+  } = theme.useToken();
+
   return (
     <div>
       <SearchComponent />
+      <Divider />
+      <Title>Collections</Title>
       <List
         itemLayout="horizontal"
         dataSource={collections.slice(
@@ -37,9 +44,17 @@ export const CollectionsPage: React.FC = () => {
           currentPage * pageSize,
         )}
         renderItem={(item: Collection) => (
-          <List.Item onClick={() => onItemClick(item.id)}>
+          <List.Item
+            onClick={() => onItemClick(item.id)}
+            style={{ cursor: 'pointer' }}
+          >
             <List.Item.Meta title={item.name} />
-            <RightOutlined style={{ fontSize: 16, color: '#08c' }} />
+            <RightOutlined
+              size={12}
+              style={{
+                color: colorLink,
+              }}
+            />
           </List.Item>
         )}
       />
