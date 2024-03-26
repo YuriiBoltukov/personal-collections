@@ -10,6 +10,7 @@ import CreateCollectionPage from '../../../private/pages/createCollection/Create
 import AdminPanelPage from '../../../private/pages/adminPanel/AdminPanel.page.tsx';
 import PrivateOfficePage from '../../../private/pages/privateOffice/PrivateOffice.page.tsx';
 import { Role } from '../../../public/modules/user';
+import { ItemDetailsPage } from '../../../public/pages/itemDetails/ItemDetailsPage.tsx';
 
 export function RoutingComponent({ role }: { role: Role }) {
   // todo resolve public route
@@ -30,6 +31,7 @@ export function RoutingComponent({ role }: { role: Role }) {
       <Route path="/" element={<DashboardPage />} />
       <Route path="/collections/" element={<CollectionsPage />} />
       <Route path="/collections/:id" element={<CollectionDetailsPage />} />
+      <Route path="/items/:id" element={<ItemDetailsPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/searchResult" element={<SearchResultPage />} />
       <Route path="/signup" element={<SignupPage />} />
